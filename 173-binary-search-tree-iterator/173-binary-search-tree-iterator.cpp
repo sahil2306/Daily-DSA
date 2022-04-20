@@ -10,32 +10,26 @@
  * };
  */
 class BSTIterator {
-    vector<int> trav;
-    int i;
 public:
-    
-    void inOrder(TreeNode *root){
-        if(!root){
-            return;
+    stack<TreeNode *> s;
+    void pushAll(TreeNode* root){
+        for(;root!=NULL;root=root->left){
+            s.push(root);
         }
-        inOrder(root->left);
-        trav.push_back(root->val);
-        inOrder(root->right);
     }
-    
     BSTIterator(TreeNode* root) {
-        inOrder(root);
-        i=0;
+        pushAll(root);
     }
     
     int next() {
-        return trav[i++];
+        TreeNode* data = s.top();
+        s.pop();
+        pushAll(data->right);
+        return data->val;
     }
     
     bool hasNext() {
-        if((i)!=trav.size()){
-            return true;
-        }
+        if(!s.empty()) return true;
         return false;
     }
 };

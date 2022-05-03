@@ -1,5 +1,5 @@
 # Subsets with XOR value
-## Medium 
+##  Medium 
 <div class="problem-statement" style="user-select: auto;">
                 <p style="user-select: auto;"></p><p style="user-select: auto;"><span style="font-size: 20px; user-select: auto;">Given an array arr&nbsp;of N integers&nbsp;and an integer&nbsp;K, find the number of subsets of arr having XOR of elements as K.</span><br style="user-select: auto;">
 &nbsp;</p>

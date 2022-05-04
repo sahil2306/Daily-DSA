@@ -1,17 +1,16 @@
 class Solution {
 public:
     int maxOperations(vector<int>& nums, int k) {
-        multiset<int> s;
-        int ans=0;
-        for(int i=nums.size()-1;i>=0;i--){
-            
-            if(s.find(k-nums[i])==s.end()){
-                s.insert(nums[i]);
+        sort(nums.begin(),nums.end());
+        int ans=0,i=0,j=nums.size()-1;
+        while(i<j){
+            if(nums[i]+nums[j]==k){
+                ans++,i++,j--;
             }
-            else{
-                auto pos = s.find(k-nums[i]);
-                s.erase(pos);
-                ans++;
+            else if(nums[i]+nums[j]>k){
+                j--;
+            }else{
+                i++;
             }
         }
         return ans;

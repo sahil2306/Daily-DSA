@@ -18,7 +18,6 @@ public:
             return -1;
         }
         for(int i=0;i<(sz-k);i++){
-            cout<<pq.top();
             pq.pop();
         }
         return pq.top();

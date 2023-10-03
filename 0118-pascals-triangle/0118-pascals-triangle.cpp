@@ -10,9 +10,9 @@ public:
         if(numRows>=2){
             ans.push_back({1,1});
         }
-
+        
+        vector<int> curr;
         for(int i=2;i<numRows;i++){
-            vector<int> curr;
             curr.push_back(1);
 
             for(int j=0;j<ans[i-1].size()-1;j++){
@@ -20,6 +20,7 @@ public:
             }
             curr.push_back(1);
             ans.push_back(curr);
+            curr.clear();
         }
 
         return ans;

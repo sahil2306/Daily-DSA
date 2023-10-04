@@ -1,8 +1,8 @@
 class MyHashMap {
 public:
-    vector<int> v;
+    int v[1000001];
     MyHashMap() {
-        v.resize(1000001,-1);
+        memset(v,-1,sizeof(v));
     }
     
     void put(int key, int value) {

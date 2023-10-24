@@ -11,25 +11,28 @@
  */
 class Solution {
 public:
-    unordered_map<int,int> freq;
-    int getSum(TreeNode* root){
+
+    int getSum(TreeNode* root, unordered_map<int,int> &freq){
         if(!root){
             return 0;
         }
 
-        int l = getSum(root->left);
-        int r = getSum(root->right);
+        int l = getSum(root->left,freq);
+        int r = getSum(root->right,freq);
 
-        freq[root->val+l+r]++;
+        int curr=root->val+l+r;
+        freq[curr]++;
 
-        return root->val+l+r;
+        return curr;
 
     }
 
     vector<int> findFrequentTreeSum(TreeNode* root) {
         vector<int> ans;
-        getSum(root);
+        unordered_map<int,int> freq;
 
+        getSum(root,freq);
+        
         int m = 1;
         for(auto i:freq){
             m = max(m,i.second);
